@@ -1,14 +1,16 @@
 library(shiny)
+library(shinythemes)
+library(shinydashboard)
 #####actual set up of page
+ui<-dashboardPage(
+  header<-dashboardHeader(
+  title="Deskpro Dashboard"),
+  dashboardSidebar(disable = T),
 
-ui<-
- # (header<-dashboardHeader(
-  #title="Deskpro Dashboard"
-#))
-#(body <- dashboardBody(
+body <- dashboardBody(  
   fluidPage(
     
-    #theme = shinythemes::shinytheme("cerulean"),
+    theme = shinythemes::shinytheme("cerulean"),
     
     ## word cloud
     
@@ -46,16 +48,20 @@ ui<-
         
       )
     )
+    #)
+    
+   # dashboardPage(
+   ##   header,
+    #  dashboardSidebar(disable = T),#no extra pages so have disabled this so far
+    #  body
+    )
   )
-#)  
+)  
 
+
+#ui<-dashboardPage(header,dashboardSidebar(disable = T),body)
 #adds header and sidebar options - to add extra pages to the sidebar
-#dashboardPage(
- # header,
- # dashboardSidebar(disable = T),#no extra pages so have disabled this so far
- # body
-  
-#)
+
 
 
 server <- function(input, output, session) {
