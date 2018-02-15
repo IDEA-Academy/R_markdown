@@ -1,0 +1,39 @@
+---
+title: "Flex Dashboard Example"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: scroll
+---
+
+Row
+------------------------
+```{r setup, include=FALSE}
+library(leaflet)
+
+```
+### chart 1
+```{r}
+map<-leaflet() 
+map<-addTiles(map)
+map<-addMarkers(map,lng=-1.780588, lat =53.838396, popup="Where we work!")
+map
+```
+
+
+### chart 2
+```{r}
+map2<-leaflet() 
+map2<-addTiles(map2)
+map2<-addMarkers(map2,lng=-1.557389, lat =53.795977, popup="Where we are moving to!")
+map2
+```
+
+### chart 3
+```{r}
+library(DT)
+car<-datatable(cars)
+car
+```
+
+
